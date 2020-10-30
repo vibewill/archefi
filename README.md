@@ -1,2 +1,2 @@
-Criar particao vfat 
-criar partiao file
+Criar partição vfat 
+criar partição file
