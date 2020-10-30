@@ -1,0 +1,15 @@
+from os import system
+
+system('cfdisk')
+system('mkfs.fat -F32 /dev/sda1')
+system('mkfs.ext4 /dev/sda2')
+system('mount /dev/sda2 /mnt')
+system('mkdir /mnt/boot')
+system('mkdir /mnt/boot/efi')
+system('mount /dev/sda1 /mnt/boot/efi')
+system('pacstrap /mnt base linux linux-firmware')
+system('genfstab -U -p /mnt >> /mnt/etc/fstab')
+system('wget https://github.com/vibewill/archefi/raw/main/archefi2')
+system('chmod +x archefi2')
+system('mv archefi2 /mnt')
+system('arch-chroot /mnt')
